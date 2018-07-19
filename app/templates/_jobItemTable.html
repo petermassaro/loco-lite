@@ -1,0 +1,11 @@
+
+<tr>
+	<td width="75%" class="valign">{{ job_item.description }}</td>
+	<td class="valign">${{ job_item.estimate }}</td>
+	{% if not editDisabled %}
+		<td class="valign">
+			<a class='btn btn-primary btn-sm right-align' href="{{ url_for('main.editJobData',
+			quoteId=job_item.quote_id, itemId=job_item.id) }}" role='button'>View/Edit</a>
+		</td>
+	{% endif %}
+</tr>

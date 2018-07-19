@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+
+{% block app_content %}
+
+{% if not current_user.info_complete() %}
+	<div class="container">
+		<p>Please follow the link and enter the requested data to enable this feature</p>
+		<br><a href='{{ url_for("main.profile") }}'>
+		Complete Profile</a>
+	</div>
+{% else %}
+	<div id="quoteform" class="container quote-form">
+	{% include "_flashedMessages.html" %}
+		    <div class="row">
+		        <div class="col-md-6 col-md-offset-3">
+		        	<h2>Work Order</h2>
+		        	<form action="" method="post" novalidate>
+		        		{{ form.hidden_tag() }}
+
+				        <p>
+				            {{ form.description.label }}<br>
+				            {{ form.description(cols='50', rows='5') }}
+				        </p>
+
+	<!-- 		            <input type='checkbox' id='address' style='padding-bottom; 20px;' onclick='displayAddressFields()' checked>Use Defualt Address<br> -->
+			            <p onclick='displayAddressFields()'>
+			            	{{ form.toggleAddress.label }}
+			            	{{ form.toggleAddress() }}
+			            </p>
+			            <div id="address_optional" style="display: none;">
+			            	<p>
+				            	{{ form.street.label }}<br>
+				            	{{ form.street(size=32) }}
+				            </p>
+				            <p>
+				            	{{ form.city.label }}<br>
+				            	{{ form.city(size=32) }}
+				            </p>
+				            <p>
+				            	{{ form.state.label }}<br>
+				            	{{ form.state(size=32) }}
+				            </p>
+				            <p>
+				            	{{ form.zip_code.label }}<br>
+				            	{{ form.zip_code(size=32) }}
+				            </p>
+			            </div>
+			            <p>
+			            	{{ form.image }}
+			            </p>
+			            <p>
+			            	{{ form.submit() }}
+			            </p>
+		        </div>
+		    </div>
+	</div>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+	{{ super() }}
+
+	<script src="{{ url_for('static', filename='static.js') }}"></script>
+{% endblock %}

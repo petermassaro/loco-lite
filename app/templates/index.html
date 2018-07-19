@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+<div id="home-page">
+	{% include "_flashedMessages.html" %}
+	<div class="container home-screen">
+		<ul>
+		<li class="home-story"><b>0</b> Marketing budget.</li>
+		<li class="home-story"><b>1</b> Google Review (by Pete's sister)</li>
+		<li class="home-story"><b>3</b> Recessions survived.</li>
+		<li class="home-story"><b>30</b> Years of Quality HVAC Service.</li>
+		<li class="home-story"><b>100's</b> Of repeat customers</li>
+		<h4 class="home-story">We must be doing something right.</h4>
+
+
+		<div class="container  action-buttons">
+			<div class="btn-toolbar">
+				<a class='btn btn-primary btn-lg quote-button' href='#quoteform' role='button'>Get A Quote</a>
+				<a class='btn btn-success btn-lg visible-xs' href="tel:+6108126892">
+					<i class="fa fa-phone"></i> Call Pete</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="quoteform" class="container quote-form">
+	    <div class="row">
+	        <div class="col-md-6 col-md-offset-3">
+	        	<h1>Get a Quote</h1>
+	            {{ wtf.quick_form(form) }}
+	        </div>
+	    </div>
+</div>
+
+{% endblock %}

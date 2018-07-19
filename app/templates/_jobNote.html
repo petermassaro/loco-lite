@@ -1,0 +1,13 @@
+
+
+<tr valign='top'>
+	<td class='jobNote'>
+		<b>{{ user.name }} ({{ moment(note.time_submitted).format('LLL') }}):</b>
+		<br>{{ note.note }}
+		{% if note.image_name %}
+			<br>
+			<img class="img-responsive" src="{{ note.image_url }}"></img>
+		{% endif %}
+	</td>
+</tr>
+

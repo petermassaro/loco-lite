@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+{% include '_flashedMessages.html' %}
+    <div class='container'>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h2>Sign In</h2>
+            {{ wtf.quick_form(form) }}
+            <br>
+		    <p>Forgot your password? <a href="{{ url_for('auth.password_reset_request') }}">Click here to reset it</a>.</p>
+		    <p>New user? <a href="{{ url_for('auth.register') }}">Click here to register</a>.</p>
+        </div>
+    </div>
+    </div>  
+    <br>
+{% endblock %}

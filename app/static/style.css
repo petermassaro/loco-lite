@@ -1,0 +1,252 @@
+.action-buttons {
+	padding-top: 20px;
+}
+
+
+#home-page {
+    background: 
+        linear-gradient(
+      rgba(169, 169, 169, 0.8), 
+      rgba(169, 169, 169, 0.8)
+    ),
+	url('https://thumbs.dreamstime.com/b/pipes-hvac-system-d-illustration-rendered-68305756.jpg');
+    background-repeat: no-repeat;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
+	margin-top: 0px;
+	padding-top: 0px;
+	height: 100%;
+}
+
+.home-story {
+	color : #FFFFFF;
+}
+
+.home-screen {
+
+    position: absolute;
+
+    margin-top: 25%;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+
+
+html, body { 
+	height: 100%; 
+	margin: 0px; 
+	padding: 0px; }
+
+.navbar {
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+	min-height: 60px;
+}
+
+
+.navbar-brand small {
+  display:block;
+  font-size:13px;
+  font-weight: normal;
+  padding-top: 3px;
+}
+
+.navbar-brand {
+	padding-bottom: 2px;
+}
+
+
+.navbar-default {
+  background-color: #000080;
+  border-color: #03038e;
+}
+.navbar-default .navbar-brand {
+  color: #ffffff;
+  padding-bottom: 5px;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #c3c3c3;
+}
+.navbar-default .navbar-text {
+  color: #ffffff;
+  padding-bottom: 10px;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #c3c3c3;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu {
+  background-color: #000080;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+  color: #c3c3c3;
+  background-color: #03038e;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li.divider {
+  background-color: #03038e;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+  color: #c3c3c3;
+  background-color: #03038e;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #c3c3c3;
+  background-color: #03038e;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #c3c3c3;
+  background-color: #03038e;
+}
+.navbar-default .navbar-toggle {
+  border-color: #03038e;
+  margin-bottom: 15px;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #03038e;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ffffff;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #ffffff;
+}
+.navbar-default .navbar-link {
+  color: #ffffff;
+}
+.navbar-default .navbar-link:hover {
+  color: #c3c3c3;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #ffffff;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #c3c3c3;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #c3c3c3;
+    background-color: #03038e;
+  }
+
+}
+
+.quote-button {
+	background-color: #000080;
+}
+
+.alert {
+	margin-top: 25px;
+}
+
+.quote-form {
+	margin-top: 25px;
+}
+
+.vcenter {
+	display: inline-block;
+	vertical-align: center;
+}
+
+
+.hcenter {
+	text-align: center;
+}
+
+.right-align {
+	text-align: right;
+}
+
+
+.user-row {
+    margin-bottom: 14px;
+}
+
+.user-row:last-child {
+    margin-bottom: 0;
+}
+
+.dropdown-user {
+    margin: 13px 0;
+    padding: 5px;
+    height: 100%;
+}
+
+.dropdown-user:hover {
+    cursor: pointer;
+}
+
+.table-user-information > tbody > tr {
+    border-top: 1px solid rgb(221, 221, 221);
+}
+
+.table-user-information > tbody > tr:first-child {
+    border-top: 0;
+}
+
+
+.table-user-information > tbody > tr > td {
+    border-top: 0;
+}
+.toppad
+{margin-top:20px;
+}
+
+.hidden {
+   visibility:hidden;
+}
+
+#address {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.img-responsive {
+    max-width: 100%;
+    width: auto;
+}
+
+@media screen and (max-width: 700px) {
+	.img-responsive {
+		max-width: 100%;
+		width: auto;
+	}
+
+}
+
+.jobNote {
+	padding-bottom: 50px;
+}
+
+
+
+
+
+

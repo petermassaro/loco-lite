@@ -1,0 +1,67 @@
+{% extends "bootstrap/base.html" %}
+
+
+
+
+{% block navbar %}
+ <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+ <link href="https://fonts.googleapis.com/css?family=Jockey+One" rel="stylesheet">
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" style="font-family: 'Jockey One', sans-serif; font-weight: bold; font-size: 34px;" href="{{ url_for('main.index') }}">NEWTEMP <small>   Heat without the hot air</small></a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            	<ul class="nav navbar-nav">
+                    {% if current_user.has_access(2) or current_user.has_access(1) %}
+                    <li><a href="{{ url_for('main.quoteRequests', jobStatus='Active') }}">Active</a></li>
+                    <li><a href="{{ url_for('main.quoteRequests', jobStatus='Complete') }}">Completed</a></li>
+                    {% endif %}
+                    {% if current_user.is_anonymous %}
+                    <li><a href="{{ url_for('main.index') }}">Home</a></li>
+                    <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+                    {% else %}
+                    <li><a href="{{ url_for('main.profile') }}">Profile</a></li>
+                    <li><a href="{{
+                    url_for('main.workOrder') }}">Work Order</a></li>
+                    <li><a href="{{ url_for('main.activity') }}">My Activity</a></li>
+                    <li><a href="{{ url_for('auth.logout') }}"
+                    >Logout</a></li>
+
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+{% endblock %}
+
+{% block content %}
+<!--     <div class="container">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-info" role="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        {# application content needs to be provided in the app_content block #}
+    </div> -->
+
+    {% block app_content %}
+        {% block scripts %}
+        {{ super() }}
+        {{ moment.include_moment() }}
+    {% endblock %}
+    {% endblock %}
+{% endblock %}
+

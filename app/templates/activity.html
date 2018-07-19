@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block app_content %}
+
+{% if quoteRequests|length > 0 %}
+	<div class='container quote-table'>
+		<h3>My Activity</h3>
+		<table class="table table-hover table-responsive btn-table">
+			<tr>
+				<th>
+					<b>Description</b>
+				</th>
+				<th>
+					<b>Submit Time</b>
+				</th>
+				<th>
+					Status
+				</th>
+			</tr>
+			<tbody>
+				{% for quote in quoteRequests %}
+					{% include '_activity.html' %}
+				{% endfor %}
+			</tbody>
+
+		</table>
+	{% else %}
+	<div class="container">
+		<h3>No Activity</h3>
+	</div>
+	{% endif %}
+<!-- 		<nav aria-label="...">
+	        <ul class="pager">
+	        	{% if prev_url %}
+	            <li class="previous{% if not prev_url %} disabled{% endif %}">
+	                <a href="{{ prev_url or '#' }}">
+	                    <span aria-hidden="true">&larr;</span> Newer requests
+	                </a>
+	            </li>
+	            {% endif %}
+	            {% if next_url %}
+	            <li class="next{% if not next_url %} disabled{% endif %}">
+	                <a href="{{ next_url or '#' }}">
+	                    Older requests <span aria-hidden="true">&rarr;</span>
+	                </a>
+	            </li>
+	            {% endif %}
+	        </ul>
+	    </nav> -->
+</div>
+
+{% endblock %}

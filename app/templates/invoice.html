@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+<div class="container">
+	{% include "_flashedMessages.html" %}
+	<div>
+		{% if docType == 'Invoice' %}
+			<h1>INVOICE</h1>
+		{% else %}
+			<h1>ESTIMATE</h1>
+		{% endif %}
+	</div>
+	<table class="table">
+		<tr>
+			<td width="70%">
+				<h4>Customer Details:</h4>
+				<p>{{ quoteRequest.customer }}</p>
+				<p>{{ quoteRequest.street }}</p>
+				<p>{{ quoteRequest.city}}, 
+				{{ quoteRequest.state }}, {{ quoteRequest.zip_code }}</p>
+				{% if quoteRequest.paid %}
+					<p>Status: Paid</p>
+				{% endif %}
+			</td>
+		</tr>
+	</table>
+	<table class="table table-hover">
+			<tr>
+				<th width="75%"><h4>Description</h4></th>
+				<th><h4>Cost</h4></th>
+			</tr>
+			<tbody>
+			{% with editDisabled = True %}
+				{% for job_item in job_items %}
+					{% include "_jobItemTable.html" %}
+
+				{% endfor %}
+				<tr>
+					<td><b>Total</b></td>
+					<td><b>${{ quoteRequest.generateTotal() }}
+				</tr>
+			{% endwith %}
+		</tbody>
+	</table>
+</div>
+
+	{% if docType == 'Estimate' %}
+
+		<div class="container  action-buttons">
+			<div class="btn-toolbar">
+				<a href="{{ url_for('main.estimate_response',
+				 quoteId=quoteRequest.id,
+				 response='accept') }}" class='btn btn-primary'>Accept</a>
+				<a href="{{ url_for('main.estimate_response',
+				quoteId=quoteRequest.id,
+				response='decline') }}" class='btn btn-danger'>Decline</a>
+			</div>
+		</div>
+
+	{% else %}
+		{% if not quoteRequest.paid %}
+			<div class="container">
+				  <form action="/charge/{{ quoteRequest.id }}" method="post">
+		    <article>
+		    </article>
+
+		    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+		            data-key="{{ key }}"
+		            data-description="Newtemp Invoice"
+		            data-amount="{{ quoteRequest.generateTotal(stripe=True) }}"
+		            data-locale="auto"></script>
+		  </form>
+			</div>
+		{% endif %}
+	{% endif %}
+
+<!-- {% block payment %}
+{% endblock %} -->
+
+
+{% endblock %}

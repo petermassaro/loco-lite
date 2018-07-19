@@ -1,0 +1,19 @@
+Hello {{ q_request.customer }},
+
+{% if type=='Estimate' %}
+
+To view your estimate, please click on the following link:
+
+{{ url_for('main.viewInvoice', docType='Estimate', token=token, _external=True) }}
+
+{% else %}
+
+To view & pay your invoice, please click on the following link:
+
+{{ url_for('main.viewInvoice', docType='Invoice', token=token, _external=True) }}
+
+{% endif %}
+
+Sincerely,
+
+Newtemp
