@@ -17,7 +17,7 @@ class Permissions:
 
 
 class QuoteRequests(db.Model):
-	__tablename__ = 'quoterequests'
+	__tablename__ = 'QuoteRequests'
 	id = db.Column(db.Integer, primary_key=True)
 	customer = db.Column(db.String(120), index=True, unique=False)
 	email = db.Column(db.String(120), index=True, unique=False)
@@ -36,7 +36,7 @@ class QuoteRequests(db.Model):
 	stripe_id = db.Column(db.String(120), unique=False)
 	job = db.relationship('JobData', backref='data', lazy='dynamic')
 	notes = db.relationship('JobNote', backref='data', lazy='dynamic')
-	user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+	user_id = db.Column(db.Integer, db.ForeignKey('User.id'))
 
 
 	def __repr__(self):
@@ -85,7 +85,7 @@ class Customer(UserMixin, db.Model):
 
 
 class User(UserMixin, db.Model):
-	__tablename__ = 'user'
+	__tablename__ = 'User'
 	id = db.Column(db.Integer, primary_key=True)
 	name = db.Column(db.String(120))
 	email = db.Column(db.String(120), index=True, unique=True)
@@ -226,9 +226,9 @@ login.anonymous_user = AnonymousUser
 
 
 class JobData(db.Model):
-	__tablename__ = 'jobdata'
+	__tablename__ = 'JobData'
 	id = db.Column(db.Integer, primary_key=True)
-	quote_id = db.Column(db.Integer, db.ForeignKey('quoterequests.id'))
+	quote_id = db.Column(db.Integer, db.ForeignKey('QuoteRequests.id'))
 	description = db.Column(db.String(500), unique=False)
 	estimate = db.Column(db.Integer)
 
@@ -238,9 +238,9 @@ class JobData(db.Model):
 
 
 class JobNote(db.Model):
-	__tablename__ = 'jobnotes'
+	__tablename__ = 'JobNote'
 	id = db.Column(db.Integer, primary_key=True)
-	quote_id = db.Column(db.Integer, db.ForeignKey('quoterequests.id'))
+	quote_id = db.Column(db.Integer, db.ForeignKey('QuoteRequests.id'))
 	note = db.Column(db.String(500), unique=False)
 	image_name = db.Column(db.String(500), unique=False)
 	time_submitted = db.Column(db.DateTime)
