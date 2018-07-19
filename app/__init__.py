@@ -9,7 +9,7 @@ import boto3
 from flask_moment import Moment
 import logging
 from logging.handlers import SMTPHandler, RotatingFileHandler
-
+import os
 
 db = SQLAlchemy()
 migrate = Migrate()
